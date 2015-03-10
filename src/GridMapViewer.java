@@ -8,7 +8,7 @@ import rp.robotics.mapping.MapUtils;
 import rp.robotics.mapping.RPLineMap;
 import rp.robotics.visualisation.GridMapVisualisation;
 import rp.robotics.visualisation.KillMeNow;
-import rp.robotics.mapping.NicksGridMap;
+
 
 public class GridMapViewer {
 
