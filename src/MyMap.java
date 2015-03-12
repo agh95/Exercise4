@@ -75,6 +75,7 @@ public class MyMap implements IGridMap {
 		//System.out.println(x1+" ");
 		Line l = new Line(x1, y1, x2, y2);
 		Line[] lines = linemap.getLines();
+		
 		if (isObstructed(_x1,_y1) || isObstructed(_x2,_y2))
 		{
 			return false;
