@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="57" started-at="2015-03-17T11:03:52Z" finished-at="2015-03-17T11:03:52Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="57" started-at="2015-03-17T11:03:52Z" finished-at="2015-03-17T11:03:52Z">
+      <class name="my.graph.GridMapTest">
+        <test-method status="PASS" signature="rangeToObstacleTest()[pri:0, instance:my.graph.GridMapTest@1fe5c6f]" name="rangeToObstacleTest" duration-ms="13" started-at="2015-03-17T11:03:52Z" finished-at="2015-03-17T11:03:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rangeToObstacleTest -->
+        <test-method status="PASS" signature="rectangularMapTest()[pri:0, instance:my.graph.GridMapTest@1fe5c6f]" name="rectangularMapTest" duration-ms="17" started-at="2015-03-17T11:03:52Z" finished-at="2015-03-17T11:03:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rectangularMapTest -->
+        <test-method status="PASS" signature="testFindPath()[pri:0, instance:my.graph.GridMapTest@1fe5c6f]" name="testFindPath" duration-ms="7" started-at="2015-03-17T11:03:52Z" finished-at="2015-03-17T11:03:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindPath -->
+        <test-method status="PASS" signature="testMapTest()[pri:0, instance:my.graph.GridMapTest@1fe5c6f]" name="testMapTest" duration-ms="3" started-at="2015-03-17T11:03:52Z" finished-at="2015-03-17T11:03:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMapTest -->
+      </class> <!-- my.graph.GridMapTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
