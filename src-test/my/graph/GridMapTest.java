@@ -1,9 +1,8 @@
 package my.graph;
 
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
-import org.testng.annotations.Test;
+
 import org.testng.AssertJUnit;
 
 import java.awt.Point;
@@ -16,12 +15,10 @@ import lejos.geom.Line;
 import lejos.geom.Rectangle;
 
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
 import Part1.BreathFirst;
 import Part1.Coordinate;
 import Part1.GraphForSearch;
-import Part1.Maybe;
 import Part1.MyMap;
 import Part1.NewGraph;
 import Part1.Node;
@@ -372,18 +369,21 @@ public class GridMapTest {
 
 	@Test
 	private void testFindPath() {
-		
-		
+
 		NewGraph<Coordinate> ng = new NewGraph<Coordinate>();
 		PopulateGraph<Coordinate> pg = new PopulateGraph<Coordinate>();
 		pg.populateGraph(ng);
-	
+
 		BreathFirst<Coordinate> bf = new BreathFirst<Coordinate>();
-		Stack<Node<Coordinate>> path = bf.findPath(ng.nodeWith(new Coordinate(0, 0)), new Predicate<Coordinate>() {
-			public boolean holds(Coordinate c) {
-				return c.equals(new Coordinate(2, 3));
-			}
-		});
+		/*
+		 * Test 1
+		 */
+		Stack<Node<Coordinate>> path = bf.findPath(
+				ng.nodeWith(new Coordinate(0, 0)), new Predicate<Coordinate>() {
+					public boolean holds(Coordinate c) {
+						return c.equals(new Coordinate(2, 3));
+					}
+				});
 		Node<Coordinate> n1 = ng.nodeWith(new Coordinate(2, 3));
 		Node<Coordinate> n2 = ng.nodeWith(new Coordinate(1, 3));
 		Node<Coordinate> n3 = ng.nodeWith(new Coordinate(1, 2));
@@ -391,15 +391,257 @@ public class GridMapTest {
 		Node<Coordinate> n5 = ng.nodeWith(new Coordinate(1, 0));
 		Node<Coordinate> n6 = ng.nodeWith(new Coordinate(0, 0));
 
-		Stack<Node<Coordinate>> reference = new Stack<Node<Coordinate>>();
-		reference.push(n1);
-		reference.push(n2);
-		reference.push(n3);
-		reference.push(n4);
-		reference.push(n5);
-		reference.push(n6);
-		
-		Assert.assertTrue(path.equals(reference));
+		Stack<Node<Coordinate>> expected = new Stack<Node<Coordinate>>();
+		expected.push(n1);
+		expected.push(n2);
+		expected.push(n3);
+		expected.push(n4);
+		expected.push(n5);
+		expected.push(n6);
+
+		Assert.assertTrue(path.equals(expected));
+
+		/*
+		 * Test 2
+		 */
+		Stack<Node<Coordinate>> path2 = bf.findPath(
+				ng.nodeWith(new Coordinate(2, 1)), new Predicate<Coordinate>() {
+					public boolean holds(Coordinate c) {
+						return c.equals(new Coordinate(4, 1));
+					}
+				});
+		Node<Coordinate> x1 = ng.nodeWith(new Coordinate(4, 1));
+		Node<Coordinate> x2 = ng.nodeWith(new Coordinate(3, 1));
+		Node<Coordinate> x3 = ng.nodeWith(new Coordinate(2, 1));
+
+		Stack<Node<Coordinate>> expected2 = new Stack<Node<Coordinate>>();
+		expected2.push(x1);
+		expected2.push(x2);
+		expected2.push(x3);
+
+		Assert.assertTrue(path2.equals(expected2));
+		/*
+		 * Test 3
+		 */
+		Stack<Node<Coordinate>> path3 = bf.findPath(
+				ng.nodeWith(new Coordinate(5, 1)), new Predicate<Coordinate>() {
+					public boolean holds(Coordinate c) {
+						return c.equals(new Coordinate(8, 1));
+					}
+				});
+		Node<Coordinate> d1 = ng.nodeWith(new Coordinate(8, 1));
+		Node<Coordinate> d2 = ng.nodeWith(new Coordinate(7, 1));
+		Node<Coordinate> d3 = ng.nodeWith(new Coordinate(6, 1));
+		Node<Coordinate> d4 = ng.nodeWith(new Coordinate(5, 1));
+
+		Stack<Node<Coordinate>> expected3 = new Stack<Node<Coordinate>>();
+		expected3.push(d1);
+		expected3.push(d2);
+		expected3.push(d3);
+		expected3.push(d4);
+
+		Assert.assertTrue(path3.equals(expected3));
+		/*
+		 * Test 4
+		 */
+		Stack<Node<Coordinate>> path4 = bf.findPath(
+				ng.nodeWith(new Coordinate(5, 4)), new Predicate<Coordinate>() {
+					public boolean holds(Coordinate c) {
+						return c.equals(new Coordinate(8, 1));
+					}
+				});
+		Node<Coordinate> k1 = ng.nodeWith(new Coordinate(8, 1));
+		Node<Coordinate> k2 = ng.nodeWith(new Coordinate(8, 2));
+		Node<Coordinate> k3 = ng.nodeWith(new Coordinate(8, 3));
+		Node<Coordinate> k4 = ng.nodeWith(new Coordinate(8, 4));
+		Node<Coordinate> k5 = ng.nodeWith(new Coordinate(8, 5));
+		Node<Coordinate> k6 = ng.nodeWith(new Coordinate(7, 5));
+		Node<Coordinate> k7 = ng.nodeWith(new Coordinate(6, 5));
+		Node<Coordinate> k8 = ng.nodeWith(new Coordinate(5, 5));
+		Node<Coordinate> k9 = ng.nodeWith(new Coordinate(5, 4));
+
+		Stack<Node<Coordinate>> expected4 = new Stack<Node<Coordinate>>();
+		expected4.push(k1);
+		expected4.push(k2);
+		expected4.push(k3);
+		expected4.push(k4);
+		expected4.push(k5);
+		expected4.push(k6);
+		expected4.push(k7);
+		expected4.push(k8);
+		expected4.push(k9);
+
+		Assert.assertTrue(path4.equals(expected4));
+
+		/*
+		 * Test 5
+		 */
+		Stack<Node<Coordinate>> path5 = bf.findPath(
+				ng.nodeWith(new Coordinate(9, 3)), new Predicate<Coordinate>() {
+					public boolean holds(Coordinate c) {
+						return c.equals(new Coordinate(4, 1));
+					}
+				});
+		Node<Coordinate> p1 = ng.nodeWith(new Coordinate(4, 1));
+		Node<Coordinate> p2 = ng.nodeWith(new Coordinate(5, 1));
+		Node<Coordinate> p3 = ng.nodeWith(new Coordinate(6, 1));
+		Node<Coordinate> p4 = ng.nodeWith(new Coordinate(7, 1));
+		Node<Coordinate> p5 = ng.nodeWith(new Coordinate(8, 1));
+		Node<Coordinate> p6 = ng.nodeWith(new Coordinate(9, 1));
+		Node<Coordinate> p7 = ng.nodeWith(new Coordinate(9, 2));
+		Node<Coordinate> p8 = ng.nodeWith(new Coordinate(9, 3));
+
+		Stack<Node<Coordinate>> expected5 = new Stack<Node<Coordinate>>();
+		expected5.push(p1);
+		expected5.push(p2);
+		expected5.push(p3);
+		expected5.push(p4);
+		expected5.push(p5);
+		expected5.push(p6);
+		expected5.push(p7);
+		expected5.push(p8);
+
+		Assert.assertTrue(path5.equals(expected5));
+
+		/*
+		 * Test 6
+		 */
+		// There is no path between these two nodes
+		Stack<Node<Coordinate>> path6 = bf.findPath(
+				ng.nodeWith(new Coordinate(2, 0)), new Predicate<Coordinate>() {
+					public boolean holds(Coordinate c) {
+						return c.equals(new Coordinate(11, 1));
+					}
+				});
+		// It should return empty stack
+		Stack<Node<Coordinate>> expected6 = new Stack<Node<Coordinate>>();
+
+		Assert.assertTrue(path6.equals(expected6));
+
+		/*
+		 * Test 7
+		 */
+		Stack<Node<Coordinate>> path7 = bf.findPath(
+				ng.nodeWith(new Coordinate(8, 1)), new Predicate<Coordinate>() {
+					public boolean holds(Coordinate c) {
+						return c.equals(new Coordinate(11, 1));
+					}
+				});
+		Stack<Node<Coordinate>> not_expected7 = new Stack<Node<Coordinate>>();
+		Node<Coordinate> no5 = ng.nodeWith(new Coordinate(8, 1));
+		Node<Coordinate> no6 = ng.nodeWith(new Coordinate(9, 1));
+		Node<Coordinate> no7 = ng.nodeWith(new Coordinate(9, 2));
+		Node<Coordinate> no8 = ng.nodeWith(new Coordinate(9, 3));
+
+		not_expected7.add(no5);
+		not_expected7.add(no6);
+		not_expected7.add(no7);
+		not_expected7.add(no8);
+
+		Assert.assertFalse(path7.equals(not_expected7));
+		/*
+		 * Test 8
+		 */
+		Stack<Node<Coordinate>> path8 = bf.findPath(
+				ng.nodeWith(new Coordinate(1, 0)), new Predicate<Coordinate>() {
+					public boolean holds(Coordinate c) {
+						return c.equals(new Coordinate(0, 6));
+					}
+				});
+		Stack<Node<Coordinate>> not_expected8 = new Stack<Node<Coordinate>>();
+		Node<Coordinate> not1 = ng.nodeWith(new Coordinate(0, 1));
+		Node<Coordinate> not2 = ng.nodeWith(new Coordinate(1, 0));
+		Node<Coordinate> not3 = ng.nodeWith(new Coordinate(1, 1));
+		Node<Coordinate> not4 = ng.nodeWith(new Coordinate(1, 2));
+		Node<Coordinate> not5 = ng.nodeWith(new Coordinate(1, 3));
+		Node<Coordinate> not6 = ng.nodeWith(new Coordinate(1, 4));
+		Node<Coordinate> not7 = ng.nodeWith(new Coordinate(1, 5));
+		Node<Coordinate> not8 = ng.nodeWith(new Coordinate(1, 6));
+		Node<Coordinate> not9 = ng.nodeWith(new Coordinate(0, 6));
+
+		not_expected8.add(not1);
+		not_expected8.add(not2);
+		not_expected8.add(not3);
+		not_expected8.add(not4);
+		not_expected8.add(not5);
+		not_expected8.add(not6);
+		not_expected8.add(not7);
+		not_expected8.add(not8);
+		not_expected8.add(not9);
+
+		Assert.assertFalse(path8.equals(not_expected8));
+		/*
+		 * Test 9
+		 */
+		Stack<Node<Coordinate>> path9 = bf.findPath(
+				ng.nodeWith(new Coordinate(1, 0)), new Predicate<Coordinate>() {
+					public boolean holds(Coordinate c) {
+						return c.equals(new Coordinate(0, 6));
+					}
+				});
+		Stack<Node<Coordinate>> not_expected9 = new Stack<Node<Coordinate>>();
+		Node<Coordinate> ot1 = ng.nodeWith(new Coordinate(1, 6));
+		Node<Coordinate> ot2 = ng.nodeWith(new Coordinate(2, 5));
+		Node<Coordinate> ot3 = ng.nodeWith(new Coordinate(2, 6));
+		Node<Coordinate> ot4 = ng.nodeWith(new Coordinate(1, 5));
+		Node<Coordinate> ot5 = ng.nodeWith(new Coordinate(1, 4));
+		Node<Coordinate> ot6 = ng.nodeWith(new Coordinate(1, 3));
+		Node<Coordinate> ot7 = ng.nodeWith(new Coordinate(1, 2));
+		Node<Coordinate> ot8 = ng.nodeWith(new Coordinate(1, 1));
+		Node<Coordinate> ot9 = ng.nodeWith(new Coordinate(1, 0));
+
+		not_expected9.add(ot1);
+		not_expected9.add(ot2);
+		not_expected9.add(ot3);
+		not_expected9.add(ot4);
+		not_expected9.add(ot5);
+		not_expected9.add(ot6);
+		not_expected9.add(ot7);
+		not_expected9.add(ot8);
+		not_expected9.add(ot9);
+
+		Assert.assertFalse(path9.equals(not_expected9));
+		/*
+		 * Test 10
+		 */
+
+		Stack<Node<Coordinate>> path10 = bf.findPath(
+				ng.nodeWith(new Coordinate(1, 0)), new Predicate<Coordinate>() {
+					public boolean holds(Coordinate c) {
+						return c.equals(new Coordinate(5, 6));
+					}
+				});
+		Stack<Node<Coordinate>> not_expected10 = new Stack<Node<Coordinate>>();
+		Node<Coordinate> f1 = ng.nodeWith(new Coordinate(5, 6));
+		Node<Coordinate> f2 = ng.nodeWith(new Coordinate(5, 5));
+		Node<Coordinate> f3 = ng.nodeWith(new Coordinate(4, 5));
+		Node<Coordinate> f4 = ng.nodeWith(new Coordinate(3, 5));
+		Node<Coordinate> f5 = ng.nodeWith(new Coordinate(2, 5));
+		Node<Coordinate> f6 = ng.nodeWith(new Coordinate(2, 6));
+		Node<Coordinate> f7 = ng.nodeWith(new Coordinate(1, 6));
+		Node<Coordinate> f8 = ng.nodeWith(new Coordinate(1, 5));
+		Node<Coordinate> f9 = ng.nodeWith(new Coordinate(1, 4));
+		Node<Coordinate> f10 = ng.nodeWith(new Coordinate(1, 3));
+		Node<Coordinate> f11 = ng.nodeWith(new Coordinate(1, 2));
+		Node<Coordinate> f12 = ng.nodeWith(new Coordinate(1, 1));
+		Node<Coordinate> f13 = ng.nodeWith(new Coordinate(1, 0));
+
+		not_expected10.add(f1);
+		not_expected10.add(f2);
+		not_expected10.add(f3);
+		not_expected10.add(f4);
+		not_expected10.add(f5);
+		not_expected10.add(f6);
+		not_expected10.add(f7);
+		not_expected10.add(f8);
+		not_expected10.add(f9);
+		not_expected10.add(f10);
+		not_expected10.add(f11);
+		not_expected10.add(f12);
+		not_expected10.add(f13);
+
+		Assert.assertFalse(path10.equals(not_expected10));
+
 	}
-	
+
 }

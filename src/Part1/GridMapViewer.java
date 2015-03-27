@@ -1,6 +1,5 @@
 package Part1;
 
-
 import javax.swing.JFrame;
 
 import rp.robotics.mapping.Heading;
@@ -10,14 +9,17 @@ import rp.robotics.mapping.RPLineMap;
 import rp.robotics.visualisation.GridMapVisualisation;
 import rp.robotics.visualisation.KillMeNow;
 
-
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GridMapViewer.
+ */
 public class GridMapViewer {
 
-	/***
-	 * Create an instance of an object that implements IGridMap from a LineMap.
-	 * You don't need to use this method, but it's a useful way for me to
-	 * document the parameters you might need.
-	 * 
+	/**
+	 * * Create an instance of an object that implements IGridMap from a
+	 * LineMap. You don't need to use this method, but it's a useful way for me
+	 * to document the parameters you might need.
+	 *
 	 * @param _lineMap
 	 *            The underlying line map
 	 * @param _gridXSize
@@ -30,7 +32,7 @@ public class GridMapViewer {
 	 *            The y coordinate where grid position (0,0) starts
 	 * @param _cellSize
 	 *            The distance between grid positions
-	 * @return
+	 * @return the i grid map
 	 */
 	public static IGridMap createGridMap(RPLineMap _lineMap, int _gridXSize,
 			int _gridYSize, float _xStart, float _yStart, float _cellSize) {
@@ -38,6 +40,9 @@ public class GridMapViewer {
 				_cellSize);
 	}
 
+	/**
+	 * View the map
+	 */
 	public void run() {
 		JFrame frame = new JFrame("Map Viewer");
 		frame.addWindowListener(new KillMeNow());
@@ -84,9 +89,6 @@ public class GridMapViewer {
 		frame.setVisible(true);
 	}
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		GridMapViewer demo = new GridMapViewer();
 		demo.run();
