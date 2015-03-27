@@ -1,4 +1,4 @@
-package Part1;
+package viewersearch;
 
 import java.util.ArrayList;
 
@@ -23,7 +23,7 @@ public class PopulateGraph<A> {
 	public void populateGraph(NewGraph<Coordinate> myGraph) {
 		MyMap map = getMap();
 		ArrayList<Node<Coordinate>> graph = new ArrayList<Node<Coordinate>>();
-		Node<Coordinate>[] nodes;
+
 		for (int q = 0; q < xJunctions; q++) {
 			for (int p = 0; p < yJunctions; p++) {
 				Coordinate coord = new Coordinate(q, p);

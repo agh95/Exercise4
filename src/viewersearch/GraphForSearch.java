@@ -1,9 +1,8 @@
-package Part1;
+package viewersearch;
 
 import java.util.Set;
 import java.util.Stack;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class GraphForSearch.
  */

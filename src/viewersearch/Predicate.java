@@ -1,4 +1,4 @@
-package Part1;
+package viewersearch;
 
 /**
  *Predicate to create the goal node

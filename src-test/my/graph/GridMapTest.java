@@ -2,7 +2,6 @@ package my.graph;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
-
 import org.testng.AssertJUnit;
 
 import java.awt.Point;
@@ -16,18 +15,18 @@ import lejos.geom.Rectangle;
 
 import org.testng.Assert;
 
-import Part1.BreathFirst;
-import Part1.Coordinate;
-import Part1.GraphForSearch;
-import Part1.MyMap;
-import Part1.NewGraph;
-import Part1.Node;
-import Part1.PopulateGraph;
-import Part1.Predicate;
 import rp.robotics.mapping.IGridMap;
 import rp.robotics.mapping.MapUtils;
 import rp.robotics.mapping.RPLineMap;
 import rp.robotics.mapping.Heading;
+import viewersearch.BreathFirst;
+import viewersearch.Coordinate;
+import viewersearch.GraphForSearch;
+import viewersearch.MyMap;
+import viewersearch.NewGraph;
+import viewersearch.Node;
+import viewersearch.PopulateGraph;
+import viewersearch.Predicate;
 
 public class GridMapTest {
 

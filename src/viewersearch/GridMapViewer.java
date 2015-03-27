@@ -1,4 +1,4 @@
-package Part1;
+package viewersearch;
 
 import javax.swing.JFrame;
 
@@ -9,7 +9,6 @@ import rp.robotics.mapping.RPLineMap;
 import rp.robotics.visualisation.GridMapVisualisation;
 import rp.robotics.visualisation.KillMeNow;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class GridMapViewer.
  */

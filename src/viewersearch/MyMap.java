@@ -1,4 +1,4 @@
-package Part1;
+package viewersearch;
 
 import lejos.geom.Line;
 import lejos.geom.Point;
@@ -8,7 +8,6 @@ import lejos.util.Delay;
 import rp.robotics.mapping.IGridMap;
 import rp.robotics.mapping.RPLineMap;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class MyMap.
  */

@@ -1,4 +1,4 @@
-package Part1;
+package viewersearch;
 
 // Minimal class for a particular implementation of directed graphs.
 // All we include is what is necessary to build a graph, in the class
@@ -6,7 +6,6 @@ package Part1;
 
 import java.util.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Node.
  *

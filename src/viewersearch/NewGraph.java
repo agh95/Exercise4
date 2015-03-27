@@ -1,4 +1,4 @@
-package Part1;
+package viewersearch;
 
 import java.awt.Point;
 import java.util.ArrayList;
